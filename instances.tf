@@ -31,10 +31,10 @@ resource "aws_instance" "ansible" {
   key_name = "${aws_key_pair.terraformkeypair.key_name}"
   security_groups = ["allow_tls"]
 
-  provisioner "file" {
-    source = "playbook.yml"
-    destination = "/etc/ansible/playbook/playbook.yml"
-     }
+#  provisioner "file" {
+#    source = "playbook.yml"
+#    destination = "/etc/ansible/playbook/playbook.yml"
+#     }
 
 
 
