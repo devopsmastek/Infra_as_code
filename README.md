@@ -6,29 +6,21 @@ Infrastrucutre as Code [AWS] - Pre requisite
 * Configuring the AWS  CLI tool in the instances using the below command 
 sudo apt  install awscli
 check whether the aws cli has been installed properly , to check use below command 
-aws –version 
+aws â€“version 
 
 
 2. Installation of Git in Ubuntu machine 
-    > use the following command to install the git 
+    > Use the following command to install the git 
 apt-get install git-core
 
 
-3.  Installing the terraform on the Ubuntu machine 
-   > below are the step used to install the terraform on the Ubuntu machine 
+3. Installing the terraform on the Ubuntu machine 
+    > Below are the step used to install the terraform on the Ubuntu machine 
     
 sudo apt-get install unzip
-
-
 wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
-
-
 unzip terraform_0.11.13_linux_amd64.zip
-
-
 sudo mv terraform /usr/local/bin/
-
-
 terraform --version 
 
 
