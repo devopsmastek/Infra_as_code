@@ -41,17 +41,31 @@ resource "aws_instance" "ansible" {
   provisioner "remote-exec" {
 
     inline = [
-      "sleep 90",
-      "sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y",
-      "sudo yum install ansible -y",
+#      "sleep 90",
+ #     "sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y",
+ #     "sudo yum install ansible -y",
+ #     "ansible --version",
+#         "git clone https://devopsmastek:Mastek%401234@github.com/devopsmastek/assemblyline.git",
+#         "sudo ansible-playbook  /home/ubuntu/assemblyline/ansible/playbook.yml"
+
+"sudo apt-get update",
+      "sleep 10",
+      "sudo apt-get install software-properties-common",
+      "sleep 10",
+      "sudo apt-add-repository --yes --update ppa:ansible/ansible",
+      "sleep 10",
+      "sudo apt-get install ansible -y",
+      "sleep 10",
       "ansible --version",
-	  "git clone https://devopsmastek:Mastek%401234@github.com/devopsmastek/assemblyline.git",
-	  "sudo ansible-playbook  /home/ubuntu/assemblyline/ansible/playbook.yml"
-	  ]}
+      "git clone -b dev  https://devopsmastek:Mastek%401234@github.com/devopsmastek/assemblyline.git",
+      "sleep 30",
+      "sudo -H  ansible-playbook  /home/ubuntu/assemblyline/ansible/playbook.yml"
+
+          ]}
 
   connection {
       type = "ssh",
-      user = "ec2-user"
+      user = "ubuntu"
       private_key = "${file("${var.PATH_TO_PRIVATE_KEY}")}"
       timeout = "3m"
       agent = false
@@ -60,4 +74,3 @@ resource "aws_instance" "ansible" {
 
 
 }
-
